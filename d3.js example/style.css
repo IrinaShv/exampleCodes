@@ -1,0 +1,215 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.param4.radarAxis {
+  color: #D22F2F;
+}
+
+.param4.radarLabel:hover {
+  color: #D22F2F;
+  border: 1px solid #D22F2F;
+  box-shadow: 0 0 0 5px rgba(210, 47, 47, 0.2);
+}
+
+.param4.highlighted {
+  font-weight: 500;
+  box-shadow: 0 0 0 5px rgba(210, 47, 47, 0.2);
+  border-radius: 4px;
+  background-color: #D22F2F;
+}
+
+.param4.highlighted.radarLabel:hover {
+  color: #062939;
+}
+
+.param2.radarAxis {
+  color: #CDDC39;
+}
+
+.param2.radarLabel:hover {
+  color: #CDDC39;
+  border: 1px solid #CDDC39;
+  box-shadow: 0 0 0 5px rgba(205, 220, 57, 0.2);
+}
+
+.param2.highlighted {
+  font-weight: 500;
+  box-shadow: 0 0 0 5px rgba(205, 220, 57, 0.2);
+  border-radius: 4px;
+  background-color: #CDDC39;
+}
+
+.param2.highlighted.radarLabel:hover {
+  color: #062939;
+}
+
+.param1.radarAxis {
+  color: #1876D2;
+}
+
+.param1.radarLabel:hover {
+  color: #1876D2;
+  border: 1px solid #1876D2;
+  box-shadow: 0 0 0 5px rgba(24, 118, 210, 0.2);
+}
+
+.param1.highlighted {
+  font-weight: 500;
+  box-shadow: 0 0 0 5px rgba(24, 118, 210, 0.2);
+  border-radius: 4px;
+  background-color: #1876D2;
+}
+
+.param1.highlighted.radarLabel:hover {
+  color: #062939;
+}
+
+.param3.radarAxis {
+  color: #F9A824;
+}
+
+.param3.radarLabel:hover {
+  color: #F9A824;
+  border: 1px solid #F9A824;
+  box-shadow: 0 0 0 5px rgba(249, 168, 36, 0.2);
+}
+
+.param3.highlighted {
+  font-weight: 500;
+  box-shadow: 0 0 0 5px rgba(249, 168, 36, 0.2);
+  border-radius: 4px;
+  background-color: #F9A824;
+}
+
+.param3.highlighted.radarLabel:hover {
+  color: #062939;
+}
+
+.radar__info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.radar__legend ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.radar__legend li {
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 9px 20px 9px 46px;
+  position: relative;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.radar__legend span {
+  display: block;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 21px;
+  background: currentColor;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px rgba(255,255,255, 0.8),
+             0 0 0 5px currentColor;
+}
+
+.radar__legend li:nth-child(1) {
+  color: #2096f3;
+}
+
+.radar__legend li:nth-child(2) {
+  color: #FF5D94;
+}
+
+.radar__legend li:nth-child(3) {
+  color: #26A59A;
+}
+
+.radar__legend li:nth-child(4) {
+  color: #FF5721;
+}
+
+.radar__btn {
+  color: #062939;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+.radar__btn:hover {
+  background-color: transparent;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+.radar__btn:focus {
+  outline: transparent;
+}
+
+.radar__chart {
+  position: relative;
+  width: 550px;
+  height: 550px;
+  padding: 0 150px;
+  box-sizing: content-box;
+  -moz-transform-origin: 0 0;
+}
+
+.radarLabel {
+  fill: #062939;
+  font-size: 14px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 5px;
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  transition: all .3s;
+}
+
+.radarAxis .line {
+  stroke: rgba(6, 41, 57, 0.15);
+  stroke-width: 1px;
+}
+
+.radarAxis .axisCircle {
+  fill: #ffffff;
+  stroke: rgba(6, 41, 57, 0.15);
+  stroke-width: 1px;
+}
+
+.radarAxis.highlighted .line {
+  stroke: currentColor;
+}
+
+.radarAxis.highlighted .axisCircle {
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+.radarCircle {
+  stroke-width: 0;
+}
+
+.radarCircle.highlighted {
+  stroke-width: 3px;
+}

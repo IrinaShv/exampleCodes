@@ -1,0 +1,24 @@
+/* ==========================================================================
+   Fonts
+   ========================================================================== */
+@font-face {
+  font-family: 'Brown';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Brown'), local('Brown-Regular'),
+       url('../fonts/Brown-Regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Brown';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Brown'), local('Brown-Light'),
+       url('../fonts/Brown-Light.woff') format('woff');
+}
+@font-face {
+  font-family: 'Brown';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Brown'), local('Brown-Bold'),
+       url('../fonts/Brown-Bold.woff') format('woff');
+}

@@ -1,0 +1,117 @@
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInUp {
+  animation-name: fadeInUp;
+}
+
+@keyframes fadeInLeft {
+  from {
+    background: linear-gradient(-60deg, $c-white 50%, transparent 50%);
+    background-size: 250%;
+    background-position: 100%
+  }
+  to {
+    background: linear-gradient(-60deg, $c-white 50%, transparent 50%);
+    background-size: 250%;
+    background-position: 0;
+  }
+}
+
+.fadeInLeft {
+  animation-name: fadeInLeft;
+}
+
+@keyframes fadeInRight {
+  from {
+    background: linear-gradient(60deg, $c-white 50%, transparent 50%);
+    background-size: 250%;
+    background-position: 0;
+  }
+  to {
+    background: linear-gradient(60deg, $c-white 50%, transparent 50%);
+    background-size: 250%;
+    background-position: 100%;
+  }
+}
+
+.fadeInRight {
+  animation-name: fadeInRight;
+}
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.delay-05s {
+  animation-delay: .5s;
+}
+
+.delay-03s {
+  animation-delay: .3s;
+  @include media(sm) {
+    animation-delay: 0;
+  }
+}
+
+.service-card {
+  @media screen and (min-width: 1099px) {
+    &:nth-child(4n + 2) {
+      animation-delay: .2s;
+    }
+    &:nth-child(4n + 3) {
+      animation-delay: .4s;
+    }
+    &:nth-child(4n + 4) {
+      animation-delay: .6s;
+    }
+  }
+  @media screen and (max-width: 1099px) and (min-width: 720px) {
+    &:nth-child(3n + 2) {
+      animation-delay: .2s;
+    }
+    &:nth-child(3n + 3) {
+      animation-delay: .4s;
+    }
+  }
+  @media screen and (max-width: 719px) and (min-width: 450px) {
+    &:nth-child(2n) {
+      animation-delay: .2s;
+    }
+  }
+}
+
+.feature__list .list__item {
+  &:nth-child(5n + 2) {
+    animation-delay: .2s;
+  }
+  &:nth-child(5n + 3) {
+    animation-delay: .4s;
+  }
+  &:nth-child(5n + 4) {
+    animation-delay: .6s;
+  }
+  &:nth-child(5n + 5) {
+    animation-delay: .8s;
+  }
+}

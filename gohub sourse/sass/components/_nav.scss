@@ -1,0 +1,147 @@
+.nav {
+  color: $c-text-strong;
+  font-family: $f-main;
+  font-size: 1.9rem;
+  font-weight: $fw-bold;
+
+  @include media(lg) {
+    width: 100%;
+    height: 100vh;
+    // background: $nav-bg;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: $z-nav;
+    opacity: 0;
+    visibility: hidden;
+    &::before {
+      @include pseudo(100px, 100px);
+      bottom: 0;
+      left: calc(50% - 25px);
+      z-index: -1;
+      background: $nav-bg;
+      border-radius: 50%;
+      transition: transform .5s ease;
+    }
+    &:target {
+      opacity: 1;
+      visibility: visible;
+      &::before {
+        transform: scale(30);
+      }
+      .nav__item {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    @include media(lg) {
+      flex-flow: column nowrap;
+      justify-content: center;
+      height: 100%;
+    }
+  }
+
+  &__item {
+    @include media(min-lg) {
+      &:not(:last-child) {
+        margin-right: 5.5rem;
+      }
+    }
+    @include media(lg) {
+      margin-bottom: 1rem;
+      opacity: 0;
+      transform: translateY(1rem);
+      transition: opacity .25s, transform .25s;
+      &:nth-child(1) {
+        transition-delay: .4s;
+      }
+      &:nth-child(2) {
+        transition-delay: .55s;
+      }
+      &:nth-child(3) {
+        transition-delay: .65s;
+      }
+      &:nth-child(4) {
+        transition-delay: .7s;
+      }
+      &:nth-child(5) {
+        transition-delay: .73s;
+      }
+      &:nth-child(6) {
+        transition-delay: .76s;
+      }
+      &:nth-child(7) {
+        transition-delay: .77s;
+      }
+    }
+  }
+
+  &__link {
+    color: currentColor;
+    background-image: linear-gradient(60deg, $c-6 0%, $c-8 50%, transparent 50%);
+    background-size: 250%;
+    background-position: 100% center;
+    transition: color .3s, background .3s;
+    &:hover {
+      color: $c-white;
+      background-position: 0% center;
+    }
+    @include media(lg) {
+      font-size: 3rem;
+      color: #fff;
+      background-image: linear-gradient(60deg, $c-white 0%, $c-white 50%, transparent 50%);
+      &:hover {
+        color: $c-text-accent;
+        background-position: 0;
+      }
+    }
+
+
+  }
+}
+.btn_nav {
+  &-open {
+    display: none;
+    @include media(lg) {
+      font-size: 2.4rem;
+      display: block;
+      padding: 2.2rem 3rem 2rem;
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      z-index: $z-nav-btn;
+      border-radius: 50% / 100% 100% 0 0;
+      transform: translateX(-50%);
+    }
+  }
+  &-close {
+    display: none;
+    @include media(lg) {
+      display: block;
+      width: 5rem;
+      height: 5rem;
+      position: absolute;
+      bottom: 0;
+      left: calc(50% - 2.5rem);
+      font-size: 0;
+      color: transparent;
+      background: none;
+      box-shadow: none;
+      &::before {
+        @include pseudo(3rem, 3rem);
+        background: center no-repeat;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 28' preserveAspectRatio='xMinYMin meet'%3E%3Cpath d='M20.281 20.656c0 0.391-0.156 0.781-0.438 1.062l-2.125 2.125c-0.281 0.281-0.672 0.438-1.062 0.438s-0.781-0.156-1.062-0.438l-4.594-4.594-4.594 4.594c-0.281 0.281-0.672 0.438-1.062 0.438s-0.781-0.156-1.062-0.438l-2.125-2.125c-0.281-0.281-0.438-0.672-0.438-1.062s0.156-0.781 0.438-1.062l4.594-4.594-4.594-4.594c-0.281-0.281-0.438-0.672-0.438-1.062s0.156-0.781 0.438-1.062l2.125-2.125c0.281-0.281 0.672-0.438 1.062-0.438s0.781 0.156 1.062 0.438l4.594 4.594 4.594-4.594c0.281-0.281 0.672-0.438 1.062-0.438s0.781 0.156 1.062 0.438l2.125 2.125c0.281 0.281 0.438 0.672 0.438 1.062s-0.156 0.781-0.438 1.062l-4.594 4.594 4.594 4.594c0.281 0.281 0.438 0.672 0.438 1.062z' style='stroke: none; fill:white;'%3E%3C/path%3E%3C/svg%3E");
+        top: calc(50% - 1.5rem);
+        left: calc(50% - 1.5rem);
+      }
+    }
+  }
+}

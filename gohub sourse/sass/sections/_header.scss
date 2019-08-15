@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 4rem auto;
+  .nav {
+    margin-left: auto;
+    margin-right: 3rem;
+  }
+  .btn {
+    font-size: 1.9rem;
+    @include media(lg) {
+      margin-left: auto;
+    }
+  }
+}

@@ -1,0 +1,178 @@
+.animated-cover {
+  width: calc(50% + 12rem);
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: $z-cover-bg;
+  background: $cover-bg;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  perspective: 1000;
+  overflow: hidden;
+  @supports ((mask-image: url()) or (-webkit-mask-image: url())) {
+    border-radius: 0;
+    -webkit-mask-image: url(../img/cover/bg.png);
+    mask-image: url(../img/cover/bg.png);
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+  }
+  @include media(xl) {
+    width: 100vh;
+    right: auto;
+    left: 46%;
+  }
+  @include media(lg) {
+    width: 100%;
+    margin-top: -25rem;
+    position: relative;
+    left: auto;
+  }
+  @include media(sm) {
+    margin-top: -20rem;
+  }
+  @include media(xs) {
+    margin-top: -15rem;
+  }
+  &::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
+}
+
+.main-scene {
+  width: 108%;
+  height: 70%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.showplaces {
+  width: 100%;
+  height: 100%;
+  background: url(../img/cover/main-clean.png) center no-repeat;
+  background-size: contain;
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  z-index: 3;
+}
+
+.wheel {
+  width: 45%;
+  height: 65%;
+  position: absolute;
+  top: 0;
+  right: 5%;
+  z-index: 1;
+  background: url(../img/cover/wheel.png) center no-repeat;
+  background-size: contain;
+  animation: rotation 60s infinite linear;
+  will-change: transform;
+}
+
+.ball {
+  position: absolute;
+  bottom: 25%;
+  z-index: 1;
+  background: url(../img/cover/ball.png) center no-repeat;
+  background-size: contain;
+  animation: goUp infinite linear;
+  will-change: transform, opacity;
+
+  &1 {
+    width: 7%;
+    height: 13%;
+    left: 20%;
+    animation-duration: 40s;
+  }
+
+  &2 {
+    width: 12%;
+    height: 18%;
+    left: 50%;
+    animation-duration: 25s;
+  }
+}
+
+.cloud {
+  position: absolute;
+  left: 0;
+  z-index: 4;
+  background: url(../img/cover/cloud.png) center no-repeat;
+  background-size: contain;
+  animation: goRight infinite linear;
+  will-change: transform;
+
+  &1 {
+    width: 20%;
+    height: 10%;
+    top: 5%;
+    animation-duration: 35s;
+    animation-delay: 1s;
+  }
+
+  &2 {
+    width: 10%;
+    height: 5%;
+    top: 20%;
+    animation-duration: 45s;
+    animation-delay: 3s;
+  }
+
+  &3 {
+    width: 20%;
+    height: 10%;
+    top: 28%;
+    animation-duration: 55s;
+    animation-delay: 5s;
+  }
+
+  &4 {
+    width: 16%;
+    height: 16%;
+    top: 8%;
+    animation-duration: 75s;
+  }
+}
+.animation-paused {
+  animation-play-state: paused;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes goUp {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-500%);
+  }
+}
+
+@keyframes goRight {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(500%);
+  }
+}

@@ -1,0 +1,59 @@
+.services {
+  padding: 18rem 0 10rem;
+  background: linear-gradient(to top, #f2f1fb 0%, #ffffff 10%);
+  position: relative;
+  &::before {
+    @include pseudo(100%, 15rem);
+    bottom: -3px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 50' preserveAspectRatio='xMinYMin meet'%3E%3Cpath d='M0,20 C150,80 350,0 500,30 L500,100 L0,100 Z' style='stroke: none; fill:white;'%3E%3C/path%3E%3C/svg%3E") center bottom no-repeat;
+    background-size: 100%;
+  }
+  &__title, &__subtitle {
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  &__title {
+    margin-bottom: 4rem;
+  }
+  &__subtitle {
+    margin-bottom: 14rem;
+  }
+  &__cards {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    @include media(lg) {
+      justify-content: space-around;
+    }
+  }
+}
+
+.service-card {
+  width: 25rem;
+  text-align: center;
+  margin-bottom: 18rem;
+  @media screen and (max-width: 1099px) {
+    width: 32%;
+  }
+  @media screen and (max-width: 719px) {
+    width: 49%;
+  }
+  @media screen and (max-width: 449px) {
+    width: 90%;
+  }
+  &__icon {
+    width: 8rem;
+    height: 8rem;
+    margin: auto;
+    .svg-icon {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__title {
+    margin-top: 4.5rem;
+    margin-bottom: 2rem;
+  }
+}

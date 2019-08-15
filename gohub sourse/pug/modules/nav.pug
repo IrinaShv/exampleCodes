@@ -1,0 +1,9 @@
+- var navLinks = [{link: '#', name: 'Product'},{link: '#', name: 'Customers'},{link: '#', name: 'Pricing'},{link: '#', name: 'Docs'}]
+
+nav.nav#menu
+  ul.nav__list
+    for i in navLinks
+      li.nav__item
+        a(href=i.link).nav__link=i.name
+  +button('Close', '#', 'btn_nav-close')
++button('Menu', '#menu', 'btn_nav-open')

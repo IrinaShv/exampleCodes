@@ -1,0 +1,27 @@
+// Variables and mixins
+@import "_variables.scss";
+@import "_mixins.scss";
+
+// Base settings
+@import "base/_base.scss";
+@import "base/_fonts.scss";
+@import "base/_layout.scss";
+@import "base/_typography.scss";
+
+// Independent components
+@import "components/_button.scss";
+@import "components/_logo.scss";
+@import "components/_nav.scss";
+@import "components/_form.scss";
+@import "components/_cta.scss";
+@import "components/_animated-cover.scss";
+@import "components/_animation-wow.scss";
+
+// Sections styling
+@import "sections/_header.scss";
+@import "sections/_cover.scss";
+@import "sections/_about.scss";
+@import "sections/_services.scss";
+@import "sections/_features.scss";
+@import "sections/_email-form.scss";
+@import "sections/_footer.scss";

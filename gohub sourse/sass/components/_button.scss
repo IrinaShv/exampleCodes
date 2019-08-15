@@ -1,0 +1,28 @@
+.btn {
+  color: $c-text-invert;
+  font-size: 1.5rem;
+  font-weight: $fw-bold;
+  line-height: 1;
+  letter-spacing: 0.001em;
+  display: inline-block;
+  padding: 1.5rem 2.5rem;
+  box-shadow: $button-shadow;
+  background-color: $button-bg;
+  border: none;
+  border-radius: 3px;
+  transform: translateY(0);
+  transition: transform .3s, box-shadow .3s;
+  backface-visibility: hidden;
+  @include media(sm) {
+    font-size: 1.8rem;
+  }
+  &:focus {
+    outline: 0;
+  }
+  &:not(.btn_nav-open):not(.btn_nav-close) {
+    &:hover, &:active {
+      transform: translateY(2px);
+      box-shadow: $button-shadow-hover;
+    }
+  }
+}

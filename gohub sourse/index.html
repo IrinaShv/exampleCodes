@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link rel="stylesheet" href="css/vendor.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <title>Go hub service</title>
+  </head>
+  <body class="loading fix">
+    <style>
+      .fix {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+      }
+      .preloader-wrap {
+        display: none;
+      }
+      .loading .preloader-wrap {
+        display: block;
+        position: fixed;
+        top: calc(50% - 50px);
+        left: calc(50% - 100px);
+        z-index: 1000;
+        width: 200px;
+        height: 100px;
+      }
+      .loading .preloader-wrap .svg-icon {
+        width: 100%;
+        height: 100%;
+        animation: pulse 1s infinite alternate;
+      }
+      .loading .preloader-wrap::before,
+      .loading .preloader-wrap::after {
+        content: "";
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        background: #fff;
+        transition: all .7s ease;
+      }
+      .loading .preloader-wrap::after {
+        opacity: .5;
+        transition-delay: .1s;
+      }
+      .loading .transition .svg-icon {
+        animation: none;
+        opacity: 0;
+      }
+      .loading .transition::before,
+      .loading .transition::after {
+        transform: translateY(-100%);
+      }
+      @keyframes pulse {
+        0% {transform: scale(.9); opacity: .7;}
+        100% {transform: scale(1.1); opacity: 1;}
+      }
+      
+    </style>
+    <div class="preloader-wrap">
+      <svg class="svg-icon" preserveAspectRatio="xMinYMid" viewBox="0 0 152 46" xmlns="http://www.w3.org/2000/svg">
+        <path d="M129.662 13.6a2.119 2.119 0 0 0-2.158 2.07v6.95a5.022 5.022 0 0 1-10.038 0v-6.94a2.116 2.116 0 0 0-2.148-2.08h-.009a2.119 2.119 0 0 0-2.158 2.07v6.95a9.346 9.346 0 0 0 18.667 0v-6.94a2.117 2.117 0 0 0-2.149-2.08h-.009M82.5 27.47a4.857 4.857 0 1 1 5.018-4.85 4.934 4.934 0 0 1-5.018 4.85m0-13.87a9.019 9.019 0 1 0 9.333 9.02A9.191 9.191 0 0 0 82.5 13.6m60.176 13.87a4.857 4.857 0 1 1 5.018-4.85 4.935 4.935 0 0 1-5.018 4.85m0-13.87a9.651 9.651 0 0 0-4.667 1.22l-.351.21v-8.6a2.16 2.16 0 0 0-4.316 0v16.21a9.337 9.337 0 1 0 9.6-9.03 2.278 2.278 0 0 0-.261-.01M62.642 27.47a4.857 4.857 0 1 1 5.018-4.85 4.934 4.934 0 0 1-5.018 4.85m7.175-13.87a2.2 2.2 0 0 0-1.969 1.24l-.117.24-.234-.14a9.73 9.73 0 0 0-4.878-1.34 9.02 9.02 0 1 0-.6 18.03q.3.015.6 0a9.641 9.641 0 0 0 4.667-1.21l.351-.21v1.63a4.934 4.934 0 0 1-5.018 4.85 5.01 5.01 0 0 1-4.666-3.03l-.07-.21a2.127 2.127 0 0 0-2.017-1.38 2.263 2.263 0 0 0-.728.12 2.051 2.051 0 0 0-1.336 2.59l.023.09.024.05a9.332 9.332 0 0 0 8.747 5.93 9.191 9.191 0 0 0 9.333-9.02V15.68a2.049 2.049 0 0 0-2.018-2.08h-.092m32.666 0a9.651 9.651 0 0 0-4.667 1.22l-.351.21v-8.6a2.16 2.16 0 0 0-4.316 0v23.14a2.11 2.11 0 0 0 2.149 2.08h.009a2.114 2.114 0 0 0 2.158-2.07v-6.94a5.021 5.021 0 0 1 10.037 0v6.93a2.11 2.11 0 0 0 2.149 2.08h.009a2.112 2.112 0 0 0 2.157-2.07.016.016 0 0 0 0-.01v-6.93a9.205 9.205 0 0 0-9.334-9.04m-79.36 32.41A22.966 22.966 0 0 1 6.779 6.76a7.254 7.254 0 0 1 10.224 0 7.175 7.175 0 0 1 0 10.18 8.557 8.557 0 0 0 0 12.14 8.609 8.609 0 0 0 13.424-10.6l-5.934 5.91a1.965 1.965 0 0 1-2.767-.07 1.938 1.938 0 0 1 0-2.68l7.475-7.45a2.042 2.042 0 0 1 2.767 0 12.485 12.485 0 0 1 0 17.66 12.62 12.62 0 0 1-17.729 0 12.485 12.485 0 0 1 0-17.66 3.279 3.279 0 0 0 .989-2.34 3.241 3.241 0 0 0-.985-2.33 3.412 3.412 0 0 0-4.714 0 19.045 19.045 0 0 0 .014 27.02 19.257 19.257 0 0 0 27.143-.01A19.112 19.112 0 0 0 23.108 3.91a1.932 1.932 0 0 1-1.946-1.93A1.986 1.986 0 0 1 23.129.01a23 23 0 1 1-.006 46z"></path>
+      </svg>
+    </div>
+    <script>
+      window.onload = function () {
+        setTimeout(function () {
+          var body = document.querySelector('body');
+          document.querySelector('.preloader-wrap').classList.add('transition');
+          body.classList.remove('fix');
+          setTimeout(function () {
+            body.classList.remove('loading');
+          }, 1000);
+        }, 1000);
+      }
+    </script>
+    <header class="header content">
+      <div class="logo logo_header"><a class="logo-link" href="#">
+          <svg class="svg-icon">
+            <use xlink:href="img/sprite.svg#logo"></use>
+          </svg></a></div>
+      <nav class="nav" id="menu">
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link" href="#">Product</a></li>
+          <li class="nav__item"><a class="nav__link" href="#">Customers</a></li>
+          <li class="nav__item"><a class="nav__link" href="#">Pricing</a></li>
+          <li class="nav__item"><a class="nav__link" href="#">Docs</a></li>
+        </ul><a class="btn btn_nav-close" href="#">Close</a>
+      </nav><a class="btn btn_nav-open" href="#menu">Menu</a><a class="btn btn_sign-in" href="#">Sign in</a>
+    </header>
+    <main>
+      <div class="animated-cover">
+        <div class="cloud cloud1 animation"></div>
+        <div class="cloud cloud2 animation"></div>
+        <div class="cloud cloud3 animation"></div>
+        <div class="cloud cloud4 animation"></div>
+        <div class="ball ball1 animation"></div>
+        <div class="ball ball2 animation"></div>
+        <div class="main-scene">
+          <div class="showplaces"></div>
+          <div class="wheel animation"></div>
+        </div>
+      </div>
+      <div class="content">
+        <section class="cover">
+          <h1 class="title_main">Balance agility with stability!</h1>
+          <p class="subtitle">Gohub monitors application stability, so you can make data-driven decisions on whether you should be building new features, or fixing bugs.</p>
+          <div class="cta"><a class="btn cta__btn" href="#">GET STARTED</a><a class="cta__link" href="#">Questions? Talk to our team →</a>
+          </div>
+        </section>
+      </div>
+      <section class="about content">
+        <div>
+          <h2 class="title_section">Improve the stability of your application</h2>
+          <p class="subtitle">Bugsnag monitors application stability, so you can make data-driven decisions on whether you should be building new features, or fixing bugs.</p>
+        </div>
+        <div class="about__card wow fadeInUp"> 
+          <div class="about-card__icon">
+            <svg class="svg-icon">
+              <use xlink:href="img/sprite.svg#about1"></use>
+            </svg>
+          </div>
+          <h3 class="about-card__title title_card">Be visible to “like”</h3>
+          <p class="about-card__text">Strengthen your digital visibility in a universe where everyone is interested in travelling and renting gears. We help you build your presence  and make you relevant without you having to lift a finger!</p>
+        </div>
+        <div class="about__card wow fadeInUp"> 
+          <div class="about-card__icon">
+            <svg class="svg-icon">
+              <use xlink:href="img/sprite.svg#about2"></use>
+            </svg>
+          </div>
+          <h3 class="about-card__title title_card">Monitor online</h3>
+          <p class="about-card__text">The platform has multiple functionalities and key features. With our intelligent system, you can approve bookings and monitor everything in your business online.</p>
+        </div>
+        <div class="about__card wow fadeInUp delay-03s"> 
+          <div class="about-card__icon">
+            <svg class="svg-icon">
+              <use xlink:href="img/sprite.svg#about3"></use>
+            </svg>
+          </div>
+          <h3 class="about-card__title title_card">More income</h3>
+          <p class="about-card__text">
+            Being on a digital platform is another sales channel added to strengthen your business. More work, in your hands. With our insights tools, we analyze your gear's performance in any season.
+            
+          </p>
+        </div>
+      </section>
+      <section class="services">
+        <div class="content">
+          <h2 class="services__title title_section">Proof makes increasing conversions simple</h2>
+          <p class="services__subtitle subtitle">Getting a conversion boost didn’t used to be this easy. Luckily, you found Proof. Now you have the tools to let your customer do the selling for you.</p>
+          <div class="services__cards">
+            <div class="service-card wow fadeInUp"> 
+              <div class="service-card__icon">
+                <svg class="svg-icon">
+                  <use xlink:href="img/sprite.svg#service1"></use>
+                </svg>
+              </div>
+              <h4 class="service-card__title">Higher Conversions</h4>
+              <p class="service-card__text">Convert more website visitors into signups and purchases.</p>
+            </div>
+            <div class="service-card wow fadeInUp">
+              <div class="service-card__icon">
+                <svg class="svg-icon">
+                  <use xlink:href="img/sprite.svg#service2"></use>
+                </svg>
+              </div>
+              <h4 class="service-card__title">Save on Acquisition</h4>
+              <p class="service-card__text">Your advertising spend will go further than ever before.</p>
+            </div>
+            <div class="service-card wow fadeInUp">
+              <div class="service-card__icon">
+                <svg class="svg-icon">
+                  <use xlink:href="img/sprite.svg#service3"></use>
+                </svg>
+              </div>
+              <h4 class="service-card__title">Increase Visitor Trust</h4>
+              <p class="service-card__text">People trust companies they see other people buy from as well.</p>
+            </div>
+            <div class="service-card wow fadeInUp">
+              <div class="service-card__icon">
+                <svg class="svg-icon">
+                  <use xlink:href="img/sprite.svg#service4"></use>
+                </svg>
+              </div>
+              <h4 class="service-card__title">Social Influence</h4>
+              <p class="service-card__text">Seeing other visitors taking action creates fear of missing out.</p>
+            </div>
+            <div class="service-card wow fadeInUp"> 
+              <div class="service-card__icon">
+                <svg class="svg-icon">
+                  <use xlink:href="img/sprite.svg#service5"></use>
+                </svg>
+              </div>
+              <h4 class="service-card__title">Activity Notifications</h4>
+              <p class="service-card__text">Display recent sales and opt-ins on your pages and drive visitors to convert.</p>
+            </div>
+            <div class="service-card wow fadeInUp">
+              <div class="service-card__icon">
+                <svg class="svg-icon">
+                  <use xlink:href="img/sprite.svg#service6"></use>
+                </svg>
+              </div>
+              <h4 class="service-card__title">Customer Journeys</h4>
+              <p class="service-card__text">Your advertising spend will go further than ever before.</p>
+            </div>
+            <div class="service-card wow fadeInUp">
+              <div class="service-card__icon">
+                <svg class="svg-icon">
+                  <use xlink:href="img/sprite.svg#service7"></use>
+                </svg>
+              </div>
+              <h4 class="service-card__title">Custom Timing</h4>
+              <p class="service-card__text">Control when, how long and how fast notifications display on your site.</p>
+            </div>
+            <div class="service-card wow fadeInUp">
+              <div class="service-card__icon">
+                <svg class="svg-icon">
+                  <use xlink:href="img/sprite.svg#service8"></use>
+                </svg>
+              </div>
+              <h4 class="service-card__title">Live Visitor Count</h4>
+              <p class="service-card__text">Show how many visitors are browsing your site - "28 people are viewing this page"</p>
+            </div>
+            <div class="service-card wow fadeInUp"> 
+              <div class="service-card__icon">
+                <svg class="svg-icon">
+                  <use xlink:href="img/sprite.svg#service9"></use>
+                </svg>
+              </div>
+              <h4 class="service-card__title">Visitor Identification</h4>
+              <p class="service-card__text">We'll show you detailed profiles of every visitor who enters their email.</p>
+            </div>
+            <div class="service-card wow fadeInUp"> 
+              <div class="service-card__icon">
+                <svg class="svg-icon">
+                  <use xlink:href="img/sprite.svg#service10"></use>
+                </svg>
+              </div>
+              <h4 class="service-card__title">Custom Rules</h4>
+              <p class="service-card__text">Granular control over how and when notifications display on your pages.</p>
+            </div>
+            <div class="service-card wow fadeInUp">
+              <div class="service-card__icon">
+                <svg class="svg-icon">
+                  <use xlink:href="img/sprite.svg#service11"></use>
+                </svg>
+              </div>
+              <h4 class="service-card__title">Mobile Optimized</h4>
+              <p class="service-card__text">With mobile traffic approaching 70%, Proof looks amazing on mobile.</p>
+            </div>
+            <div class="service-card wow fadeInUp">
+              <div class="service-card__icon">
+                <svg class="svg-icon">
+                  <use xlink:href="img/sprite.svg#service12"></use>
+                </svg>
+              </div>
+              <h4 class="service-card__title">Language Translation</h4>
+              <p class="service-card__text">
+                Translate Recent Activity notification into any language you want. We're global.
+                
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="features">
+        <div class="content">
+          <div class="feature-card feature-card_left wow fadeInUp">
+            <h2 class="feature-card__title title_section">Your safety is always a top priority</h2>
+            <div class="feature-card__img wow fadeInRight delay-05s"><img src="img/illustr1.png"/></div>
+            <p class="feature-card__subtitle subtitle">We’re committed to helping drivers and riders get where they want to go with confidence.</p>
+            <div class="feature-card__content-wrap">
+              <div class="feature-card__content">
+                <h3 class="title_card">Drive</h3>
+                <p>Drive when you want. Find opportunities around you.</p>
+              </div>
+              <div class="feature-card__content">
+                <h3 class="title_card">Ride</h3>
+                <p>Tap your phone. Get where you're headed.</p>
+              </div>
+            </div>
+            <div class="cta"><a class="btn cta__btn" href="#">GET STARTED</a><a class="cta__link" href="#">Questions? Talk to our team →</a>
+            </div>
+          </div>
+        </div>
+        <div class="content">
+          <div class="feature-card feature-card_right wow fadeInUp">
+            <h2 class="feature-card__title title_section">Move the way you want<br>Doors are always opening</h2>
+            <div class="feature-card__img wow fadeInLeft delay-05s"><img src="img/illustr2.png"/></div>
+            <p class="feature-card__subtitle subtitle">Opportunity is everywhere. Get out there and find it with Uber.</p>
+            <div class="feature-card__content-wrap">
+              <div class="feature-card__content">
+                <h3 class="title_card">Drive</h3>
+                <p>Drive when you want. Find opportunities around you.</p>
+              </div>
+              <div class="feature-card__content">
+                <h3 class="title_card">Ride</h3>
+                <p>Tap your phone. Get where you're headed.</p>
+              </div>
+            </div>
+            <div class="cta"><a class="btn cta__btn" href="#">GET STARTED</a><a class="cta__link" href="#">Questions? Talk to our team →</a>
+            </div>
+          </div>
+        </div>
+        <div class="feature-lists">
+          <div class="content">
+            <h2 class="feature-lists__title title_section">Your finances on auto-pilot</h2>
+            <p class="feature-lists__subtitle subtitle">With Qonto, admin hassle are over! Unlimited history, auto-categorised transactions, simplified transfers entries, budgets, history exportable for accounting... and the list goes on!</p>
+            <div class="feature-list__wrap">
+              <div class="feature__list">
+                <h3 class="title_list">Save time</h3>
+                <ul>
+                  <li class="list__item wow fadeInUp">Intuitive process and simple interface</li>
+                  <li class="list__item wow fadeInUp">Online and paperless</li>
+                  <li class="list__item wow fadeInUp">Real-time notifications</li>
+                </ul>
+              </div>
+              <div class="feature__list">
+                <h3 class="title_list">Monitor your expenses</h3>
+                <ul>
+                  <li class="list__item wow fadeInUp">Specific access/rights by users</li>
+                  <li class="list__item wow fadeInUp">Physical and virtual Mastercards with adjustable payment limits</li>
+                  <li class="list__item wow fadeInUp">Dashboards to follow-up on your expenses</li>
+                </ul>
+              </div>
+              <div class="feature__list">
+                <h3 class="title_list">Make accounting easier</h3>
+                <ul>
+                  <li class="list__item wow fadeInUp">Unlimited history</li>
+                  <li class="list__item wow fadeInUp">Read-only access for your accountant</li>
+                  <li class="list__item wow fadeInUp">Plug-and-play exports for accounting tools</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="email-form">
+        <div class="content">
+          <div class="email-form__text">
+            <h2 class="email-form__title title_section">Ready to get started?</h2>
+            <p class="subtitle">Get a guided demo with an OKR expert.</p>
+          </div>
+          <form class="email-form__form" action="#">
+            <label>Email address
+              <input type="email" name="email" placeholder="Email address" required="required"/>
+            </label>
+            <button class="btn" type="submit">GET STARTED</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="content footer__top">
+        <div class="logo logo_inverted footer__logo"><a class="logo-link" href="#">
+            <svg class="svg-icon">
+              <use xlink:href="img/sprite.svg#logo"></use>
+            </svg></a></div>
+        <div class="footer__phones"><a href="tel:+49305557322">EU: +49 30 555 7322</a><a href="tel:+14158004497">US: +1 415 800 4497</a></div>
+        <div class="footer__email"><a href="mailto:info@gohub.ee">info@gohub.ee</a></div>
+        <div class="footer__social"><a href="http://linkedin.com" title="LinkedIn">
+            <svg class="svg-icon">
+              <use xlink:href="img/sprite.svg#linkedin"></use>
+            </svg></a><a href="http://facebook.com" title="Facebook">
+            <svg class="svg-icon">
+              <use xlink:href="img/sprite.svg#facebook"></use>
+            </svg></a><a href="http://twitter.com" title="Twitter">
+            <svg class="svg-icon">
+              <use xlink:href="img/sprite.svg#twitter"></use>
+            </svg></a><a href="http://github.com" title="Github">
+            <svg class="svg-icon">
+              <use xlink:href="img/sprite.svg#github"></use>
+            </svg></a></div>
+      </div>
+      <p class="footer__copyright content">&copy; 2019 Developed by <a href="https://irinashv.github.io">IrinaSh</a></p>
+    </footer>
+    <script src="js/vendor.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

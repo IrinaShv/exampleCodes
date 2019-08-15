@@ -1,0 +1,199 @@
+extends layout/main
+
+block vars
+  - var pageTitle = 'Go hub service'
+
+block content
+  main
+    .animated-cover
+      .cloud.cloud1.animation
+      .cloud.cloud2.animation
+      .cloud.cloud3.animation
+      .cloud.cloud4.animation
+      .ball.ball1.animation
+      .ball.ball2.animation
+      .main-scene
+        .showplaces
+        .wheel.animation
+
+    .content
+      section.cover
+        h1.title_main Balance agility with stability!
+        p.subtitle.
+          Gohub monitors application stability, so you can make data-driven decisions on whether you should be building new features, or fixing bugs.
+        .cta
+          +button('GET STARTED', '#', 'cta__btn')
+          a.cta__link(href="#") Questions? Talk to our team →
+
+    section.about.content
+      div
+        h2.title_section Improve the stability of your application
+        p.subtitle.
+          Bugsnag monitors application stability, so you can make data-driven decisions on whether you should be building new features, or fixing bugs.
+      .about__card.wow.fadeInUp 
+        .about-card__icon
+          +svg-icon("about1")
+        h3.about-card__title.title_card Be visible to “like”
+        p.about-card__text.
+          Strengthen your digital visibility in a universe where everyone is interested in travelling and renting gears. We help you build your presence  and make you relevant without you having to lift a finger!
+      .about__card.wow.fadeInUp 
+        .about-card__icon
+          +svg-icon("about2")
+        h3.about-card__title.title_card Monitor online
+        p.about-card__text.
+          The platform has multiple functionalities and key features. With our intelligent system, you can approve bookings and monitor everything in your business online.
+      .about__card.wow.fadeInUp.delay-03s 
+        .about-card__icon
+          +svg-icon("about3")
+        h3.about-card__title.title_card More income
+        p.about-card__text.
+          Being on a digital platform is another sales channel added to strengthen your business. More work, in your hands. With our insights tools, we analyze your gear's performance in any season.
+    
+    section.services
+      .content
+        h2.services__title.title_section Proof makes increasing conversions simple
+        p.services__subtitle.subtitle.
+          Getting a conversion boost didn’t used to be this easy. Luckily, you found Proof. Now you have the tools to let your customer do the selling for you.
+        .services__cards
+          .service-card.wow.fadeInUp 
+            .service-card__icon
+              +svg-icon("service1")
+            h4.service-card__title Higher Conversions
+            p.service-card__text.
+              Convert more website visitors into signups and purchases.
+          .service-card.wow.fadeInUp
+            .service-card__icon
+              +svg-icon("service2")
+            h4.service-card__title Save on Acquisition
+            p.service-card__text.
+              Your advertising spend will go further than ever before.
+          .service-card.wow.fadeInUp
+            .service-card__icon
+              +svg-icon("service3")
+            h4.service-card__title Increase Visitor Trust
+            p.service-card__text.
+              People trust companies they see other people buy from as well.
+          .service-card.wow.fadeInUp
+            .service-card__icon
+              +svg-icon("service4")
+            h4.service-card__title Social Influence
+            p.service-card__text.
+              Seeing other visitors taking action creates fear of missing out.
+          .service-card.wow.fadeInUp 
+            .service-card__icon
+              +svg-icon("service5")
+            h4.service-card__title Activity Notifications
+            p.service-card__text.
+              Display recent sales and opt-ins on your pages and drive visitors to convert.
+          .service-card.wow.fadeInUp
+            .service-card__icon
+              +svg-icon("service6")
+            h4.service-card__title Customer Journeys
+            p.service-card__text.
+              Your advertising spend will go further than ever before.
+          .service-card.wow.fadeInUp
+            .service-card__icon
+              +svg-icon("service7")
+            h4.service-card__title Custom Timing
+            p.service-card__text.
+              Control when, how long and how fast notifications display on your site.
+          .service-card.wow.fadeInUp
+            .service-card__icon
+              +svg-icon("service8")
+            h4.service-card__title Live Visitor Count
+            p.service-card__text.
+              Show how many visitors are browsing your site - "28 people are viewing this page"
+          .service-card.wow.fadeInUp 
+            .service-card__icon
+              +svg-icon("service9")
+            h4.service-card__title Visitor Identification
+            p.service-card__text.
+              We'll show you detailed profiles of every visitor who enters their email.
+          .service-card.wow.fadeInUp 
+            .service-card__icon
+              +svg-icon("service10")
+            h4.service-card__title Custom Rules
+            p.service-card__text.
+              Granular control over how and when notifications display on your pages.
+          .service-card.wow.fadeInUp
+            .service-card__icon
+              +svg-icon("service11")
+            h4.service-card__title Mobile Optimized
+            p.service-card__text.
+              With mobile traffic approaching 70%, Proof looks amazing on mobile.
+          .service-card.wow.fadeInUp
+            .service-card__icon
+              +svg-icon("service12")
+            h4.service-card__title Language Translation
+            p.service-card__text.
+              Translate Recent Activity notification into any language you want. We're global.
+    
+    section.features
+      .content
+        .feature-card.feature-card_left.wow.fadeInUp
+          h2.feature-card__title.title_section Your safety is always a top priority
+          .feature-card__img.wow.fadeInRight.delay-05s
+            img(src="img/illustr1.png")
+          p.feature-card__subtitle.subtitle.
+            We’re committed to helping drivers and riders get where they want to go with confidence.
+          .feature-card__content-wrap
+            .feature-card__content
+              h3.title_card Drive
+              p.
+                Drive when you want. Find opportunities around you.
+            .feature-card__content
+              h3.title_card Ride
+              p.
+                Tap your phone. Get where you're headed.
+          .cta
+            +button('GET STARTED', '#', 'cta__btn')
+            a.cta__link(href="#") Questions? Talk to our team →
+
+      .content
+        .feature-card.feature-card_right.wow.fadeInUp
+          h2.feature-card__title.title_section Move the way you want<br>Doors are always opening
+          .feature-card__img.wow.fadeInLeft.delay-05s
+            img(src="img/illustr2.png")
+          p.feature-card__subtitle.subtitle.
+            Opportunity is everywhere. Get out there and find it with Uber.
+          .feature-card__content-wrap
+            .feature-card__content
+              h3.title_card Drive
+              p.
+                Drive when you want. Find opportunities around you.
+            .feature-card__content
+              h3.title_card Ride
+              p.
+                Tap your phone. Get where you're headed.
+          .cta
+            +button('GET STARTED', '#', 'cta__btn')
+            a.cta__link(href="#") Questions? Talk to our team →
+      
+      .feature-lists
+        .content
+          h2.feature-lists__title.title_section Your finances on auto-pilot
+          p.feature-lists__subtitle.subtitle.
+            With Qonto, admin hassle are over! Unlimited history, auto-categorised transactions, simplified transfers entries, budgets, history exportable for accounting... and the list goes on!
+          .feature-list__wrap
+            .feature__list
+              h3.title_list Save time
+              -var items=['Intuitive process and simple interface', 'Online and paperless', 'Real-time notifications']
+              +list(items)
+            .feature__list
+              h3.title_list Monitor your expenses
+              -var items=['Specific access/rights by users', 'Physical and virtual Mastercards with adjustable payment limits', 'Dashboards to follow-up on your expenses']
+              +list(items)
+            .feature__list
+              h3.title_list Make accounting easier
+              -var items=['Unlimited history', 'Read-only access for your accountant', 'Plug-and-play exports for accounting tools']
+              +list(items)
+          
+    section.email-form
+      .content
+        .email-form__text
+          h2.email-form__title.title_section Ready to get started?
+          p.subtitle Get a guided demo with an OKR expert.
+        form(action="#").email-form__form
+          label Email address
+            input(type="email", name="email" placeholder="Email address" required)
+          +submit('GET STARTED')

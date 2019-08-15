@@ -1,0 +1,55 @@
+// Colors
+$c-1: #212240;
+$c-2: #32325d;
+$c-3: #3d4677;
+$c-4: #525f7f;
+$c-5: #555377;
+$c-6: #7a69e6;
+$c-7: #8081ab;
+$c-8: #845cff;
+$c-9: #ccccff;
+$c-10: #f8f7ff;
+$c-11: #fafaff;
+$c-white: #ffffff;
+
+// Text colors
+$c-text: $c-4;
+$c-text-strong: $c-2;
+$c-text-invert: $c-white;
+$c-text-accent: $c-8;
+$c-text-placeholder: $c-7;
+$c-text-selection: $c-9;
+
+// Decoration
+$button-bg: $c-8;
+$button-shadow: -7px 7px 20px 0px rgba(111,53,255,0.2);
+$button-shadow-hover: -7px 4px 15px 0px rgba(111,53,255,0.3);
+
+$link-underline: linear-gradient(to right, $c-6, $c-8, $c-6);
+
+$block-shadow: -7px 7px 20px 0px rgba(211,211,250,0.2);
+
+$cover-bg: linear-gradient(to top, #e7e7fc,#f2f1fb);
+$email-form-bg: $c-11; 
+$input-bg: $c-white;
+$footer-bg: $c-1;
+$nav-bg: linear-gradient(to top, $c-6, $c-8, $c-6);
+
+// Font family
+$f-main: 'Brown', sans-serif;
+
+// Font weight
+$fw-light: 300;
+$fw-regular: 400;
+$fw-bold: 700;
+
+// Dimentions
+$xl: 1235px;
+$lg: 900px;
+$sm: 650px;
+$xs: 400px;
+
+// Z-indexes
+$z-cover-bg: -1;
+$z-nav-btn: 100;
+$z-nav: 101;

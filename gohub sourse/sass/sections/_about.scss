@@ -1,0 +1,49 @@
+.about {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  @include media(sm) {
+    flex-flow: column nowrap;
+    margin-top: 12rem;
+  }
+  &>* {
+    width: calc(50% - 5rem);
+    margin-bottom: 5rem;
+    @include media(lg) {
+      width: calc(50% - 1rem);
+      margin-bottom: 3rem;
+    }
+    @include media(sm) {
+      width: 100%;
+    }
+    &:first-child {
+      padding-bottom: 2rem;
+      align-self: flex-end;
+    }
+  }
+  .title_section {
+    margin-bottom: 4rem;
+  }
+
+  &__card {
+    padding: 6rem;
+    padding-bottom: 8rem;
+    box-shadow: $block-shadow;
+    background-color: $c-white;
+    border-radius: 1rem;
+  }
+  &-card {
+    &__icon {
+      height: 12rem;
+      width: 100%;
+      margin-bottom: 6rem;
+      .svg-icon {
+        height: 100%;
+        width: 100%;
+      }
+    }
+    &__title {
+      margin-bottom: 3rem;
+    }
+  }
+}

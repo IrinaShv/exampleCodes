@@ -1,0 +1,67 @@
+.email-form {
+  padding: 12rem 0;
+  background: $email-form-bg;
+  .content {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    @include media(xl) {
+      flex-flow: column nowrap;
+    }
+  }
+  &__text {
+    @include media(xl) {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+  }
+  &__title {
+    margin-bottom: 3rem;
+  }
+  &__form {
+    display: flex; 
+    align-items: center;
+    position: relative;
+    @include media(sm) {
+      flex-flow: column nowrap;
+      width: 100%;
+    }
+    label {
+      font-size: 0;
+      color: rgba(0,0,0,0);
+      width: 100%;
+    }
+    input {
+      color: $c-text-strong;
+      font-family: $f-main;
+      font-size: 2.3rem;
+      font-weight: $fw-light;
+      letter-spacing: 0.001em;
+      width: 59rem;
+      padding: 3rem 20rem 3rem 4rem;
+      box-shadow: $block-shadow;
+      background-color: $input-bg;
+      border-radius: 5px;
+      border: 0;
+      @include media(sm) {
+        width: 100%;
+        padding: 3rem 4rem;
+      }
+      &::placeholder {
+        color: $c-text-placeholder;
+      }
+      &:focus {
+        outline: 0;
+      }
+    }
+    .btn {
+      margin-left: -16.5rem;
+      @include media(sm) {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 2rem;
+      }
+    }
+  }
+}

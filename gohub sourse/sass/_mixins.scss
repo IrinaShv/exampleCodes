@@ -1,0 +1,39 @@
+// Pseudoelement
+@mixin pseudo($width, $height) {
+  content: "";
+  display: block;
+  width: $width;
+  height: $height;
+  position: absolute;
+}
+
+// Center absolute element 
+@mixin h-center-elem {
+  left: 50%;
+  transform: translateX(-50%);
+}
+@mixin v-center-elem {
+  top: 50%;
+  transform: translateY(-50%);
+}
+@mixin center-elem {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin media($size) {
+
+	@if $size == xl { @media only screen and (max-width: $xl) { @content } }
+	@else if $size == lg { @media only screen and (max-width: $lg) { @content } }
+	@else if $size == sm { @media only screen and (max-width: $sm) { @content } }
+	@else if $size == xs { @media only screen and (max-width: $xs) { @content } }
+
+	@else if $size == min-xl { @media only screen and (min-width: $xl + 1) { @content } }
+	@else if $size == min-lg { @media only screen and (min-width: $lg + 1) { @content } }
+  @else if $size == min-sm { @media only screen and (min-width: $sm + 1) { @content } }
+}
+
+@mixin mediaCustom($size) {
+	@media only screen and (max-width: $size) { @content }
+}

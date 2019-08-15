@@ -1,0 +1,8 @@
+.content {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  @include media(min-xl) {
+    max-width: $xl;
+  }
+}

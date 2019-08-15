@@ -1,0 +1,111 @@
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+html {
+  color: $c-text;
+  font-family: $f-main;
+  font-size: 62.5%; // 1rem = 10px
+  line-height: 1.4;
+  font-weight: $fw-light;
+  @include media(lg) {
+    font-size: 56.25%; // 1rem = 9px
+  }
+  @include media(sm) {
+    font-size: 50%; // 1rem = 8px
+  }
+}
+
+@supports(scroll-behavior:smooth) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body, body *, 
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url(../img/bg-cover.jpg) left top no-repeat;
+  background-size: 50%;
+  overflow-x: hidden;
+}
+
+ul { list-style: none; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button { cursor: pointer; }
+
+img {
+  text-align: center;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Remove text-shadow in selection highlight/ */
+::-moz-selection {
+  background: $c-text-selection;
+  text-shadow: none;
+}
+::selection {
+  background: $c-text-selection;
+  text-shadow: none;
+}
+
+/* A better looking default horizontal rule */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1rem 0;
+  padding: 0;
+}
+
+/* Remove the gap between elements and the bottom of their containers */
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/* Remove default fieldset styles. */
+fieldset { border: 0; }
+
+/* Allow only vertical resizing of textareas. */
+textarea { resize: vertical; }
+
+/* Browser Upgrade Prompt */
+.browserupgrade {
+  margin: 0.2em 0;
+  background: $cover-bg;
+  color: $c-text;
+  padding: 0.2em 0;
+}
+/* Clearfix for floated elements */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.svg-icon {
+  display: inline-block;
+  width: 4rem;
+  height: 4rem;
+  stroke-width: 0;
+  stroke: none;
+  fill: currentColor;
+}
